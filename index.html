@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <h1>Todo List</h1>
+    <hr>
+    <section id="buscador" class="row">
+        <label for="tarea">Nueva Tarea </label><br>
+        <div class="col-11">
+            <input class="form-control" type="text" name="tarea" id="tarea" placeholder="Ingresa una Tarea" value="">
+        </div>
+        <div class="col-1 p-0">
+            <button id="agregarTarea" class="btn btn-success">Agregar</button>
+        </div>
+    </section>
+    <div class="container m-0 p-0">
+        <section class="mt-5" id="cuenta">
+            <p>Total: <span class="fw-bold" id="total">0</span></p>
+            <p>Realizadas: <span class="fw-bold" id="realizadas">0</span></p>
+        </section>
+
+        <section class="mt-5" id="listaTareas">
+            <!-- tabla con id, tarea, checkbox, borrar-->
+            <table class="table table-borderless">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Tarea</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Agregar lista de tareas de forma dinámica -->
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+
+    <script src="assets/js/todolist.js"></script>
+</body>
+</html>
