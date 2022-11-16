@@ -12,7 +12,7 @@ function renderTareas(array = tareas){
     for (let tarea of array){
         html += `<tr>
                     <td>${tarea.id}</td>
-                    <td colspan="2">${tarea.nombre}</td>
+                    <td>${tarea.nombre}</td>
                     <td><input class="form-check-input mt-0" type="checkbox" onclick="cambiarValorCheckbox(${tarea.id})" ${tarea.estado ? "checked" : ""} ></td>
                     <td><button onclick="borrarTarea(${tarea.id})">❌</button></td>
                 </tr>`;
