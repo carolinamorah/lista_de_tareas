@@ -12,16 +12,12 @@ function renderTareas(array = tareas){
     for (let tarea of array){
         html += `<tr>
                     <td>${tarea.id}</td>
-                    <td>${tarea.nombre}</td>
-                    <td><input class="form-check-input mt-0" type="checkbox" onclick="cambiarValorCheckbox(${tarea.id})" ${tarea.estado ? "checked" : ""} ></td>
+                    <td id="nombre${tarea.id}">${tarea.nombre}</td>
+                    <td><input id="${tarea.id}" class="form-check-input mt-0" type="checkbox" onclick="cambiarEstadoCheckbox(${tarea.id})" ></td>
                     <td><button onclick="borrarTarea(${tarea.id})">❌</button></td>
                 </tr>`;
     }
 
-    
-    const realizadas = array.filter((check) => check.estado === true);
-    const contador = realizadas.length;
-    tareasRealizadas.innerHTML = contador;
     tareasTotales.innerHTML = array.length
     listaDeTareas.innerHTML = html
 }
@@ -50,7 +46,7 @@ function borrarTarea(id){
     renderTareas()
 }
 
-function cambiarValorCheckbox(id){
+function holo(id){
     tareas.map((tarea) => {
         if (tarea.id == id) tarea.estado = !tarea.estado;
     });
@@ -58,6 +54,20 @@ function cambiarValorCheckbox(id){
     renderTareas()
 }
 
+function cambiarEstadoCheckbox(param) {
+    let check = document.getElementById(param);
+    const index = tareas.findIndex((ele) => ele.id == param);
+    if (check.checked == true) {
+        document.getElementById(`nombre${param}`).classList.add("text-decoration-line-through");
+        tareas[index].estado = true;
+    }
+    else {
+        document.getElementById(`nombre${param}`).classList.remove("text-decoration-line-through");
+        tareas[index].estado = false;
+    }
+
+    tareasRealizadas.innerHTML = `${tareas.filter(chkx => chkx.estado == true).length}`;
+}
 
 
 
